@@ -1,17 +1,15 @@
 <template>
-  <div id="app">
-    <div class="app-container">
-      <img alt="Vue logo" src="./assets/primevue-logo.png">
-      <HelloWorld msg="Welcome to Your PrimeVue App"/>
-      <form @submit.prevent="greet">
-        <InputText type="text" v-model="text"/>
-        <Button type="submit" label="Submit"/>
-        <h3>{{message}}</h3>
-      </form>
-    </div>
-
-    <Toast/>
+  <div class="app-container">
+    <img alt="Vue logo" src="./assets/primevue-logo.png">
+    <HelloWorld msg="Welcome to Your PrimeVue App"/>
+    <form @submit.prevent="greet">
+      <InputText type="text" v-model="text"/>
+      <Button type="submit" label="Submit"/>
+      <h3>{{message}}</h3>
+    </form>
   </div>
+
+  <Toast/>
 </template>
 
 <script>
@@ -36,7 +34,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -49,7 +47,7 @@ export default {
   text-align: center;
 }
 
-body #app .p-button {
+#app .p-button {
   margin-left: .2em;
 }
 
