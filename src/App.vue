@@ -9,27 +9,31 @@
     </form>
   </div>
 
-  <Toast/>
+  <Toast ref="toast"/>
 </template>
 
 <script>
+import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-    data() {
-        return {
-            message: null,
-            text: null
-        }
-    },
-    methods: {
-        greet() {
-            this.$toast.add({severity: 'info', summary: 'Hello '  + this.text});
-            this.message = 'Hello ' + this.text;
-        }
-    },
     components: {
       HelloWorld
+    },
+
+    setup() {
+      const message = ref(null);
+      const text = ref(null);
+      const toast = ref(null);
+
+      function greet() {
+        toast.value.$toast.add({severity: 'info', summary: 'Hello '  + text.value});
+        message.value = 'Hello ' + text.value;
+      }
+
+      return {
+        message, text, toast, greet
+      };
     }
 }
 </script>
